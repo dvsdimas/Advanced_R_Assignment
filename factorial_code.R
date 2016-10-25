@@ -1,3 +1,19 @@
+if(!require(purrr)) {
+    stop("the 'purrr' package needs to be installed first")
+}
+
+# data for tests
+
+numbers <- c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+factorials <- c(1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800)
+
+# test function
+
+test_function <- function(f) {
+    stopifnot(all(map2_lgl(numbers, factorials, function(x, y) { identical(f(x), y) } )))
+}
+
+
 # Factorial_loop: a version that computes the factorial of an integer using looping (such as a for loop)
 
 fuctorial_loop <- function(n) {
@@ -15,18 +31,31 @@ fuctorial_loop <- function(n) {
     ret
 }
 
-# test implementation fuctorial_loop
+# test fuctorial_loop
 
-stopifnot(identical(fuctorial_loop(0), 1))
-stopifnot(identical(fuctorial_loop(1), 1))
-stopifnot(identical(fuctorial_loop(2), 2))
-stopifnot(identical(fuctorial_loop(3), 6))
-stopifnot(identical(fuctorial_loop(4), 24))
-stopifnot(identical(fuctorial_loop(5), 120))
+test_function(fuctorial_loop)
 
 
 
+# Factorial_reduce: a version that computes the factorial using the reduce() function in the purrr package
 
-# Factorial_reduce: a version that computes the factorial using the reduce() function in the purrr package. Alternatively, you can use the Reduce() function in the base package.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Factorial_func: a version that uses recursion to compute the factorial.
 # Factorial_mem: a version that uses memoization to compute the factorial.
