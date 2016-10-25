@@ -2,6 +2,10 @@ if(!require(purrr)) {
     stop("the 'purrr' package needs to be installed first")
 }
 
+if(!require(microbenchmark)) {
+    stop("the 'microbenchmark' package needs to be installed first")
+}
+
 
 # data for tests
 
@@ -99,11 +103,23 @@ test_function(Factorial_mem)
 
 ### Function's performance tests
 
+count <- 100000
 
 
+n_small <- 5
+
+microbenchmark(Factorial_loop(n_small), times = count)
+microbenchmark(Factorial_reduce(n_small), times = count)
+microbenchmark(Factorial_func(n_small), times = count)
+microbenchmark(Factorial_mem(n_small), times = count)
 
 
+n_big <- 20
 
+microbenchmark(Factorial_loop(n_big), times = count)
+microbenchmark(Factorial_reduce(n_big), times = count)
+microbenchmark(Factorial_func(n_big), times = count)
+microbenchmark(Factorial_mem(n_big), times = count)
 
 
 
