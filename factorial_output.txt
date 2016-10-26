@@ -1,0 +1,30 @@
+This file contains the results of comparison of the four different implementations Factorial function:
+Factorial_loop, Factorial_reduce, Factorial_func, Factorial_mem
+
+
+Test environment specification: x86_64, Win10, Core I5, 32 Gb Ram, R version 3.3.1 (2016-06-21)
+All tests include calling the function 100000 times
+For comparing I use mean time in microseconds
+
+
+First scenario
+Light input: 5!
+
+Factorial_loop   :  10.04479
+Factorial_reduce :  23.99598
+Factorial_func   :  41.53462
+Factorial_mem    :  8.852114
+
+
+Second scenario
+Heavy input: 20!
+
+Factorial_loop   :  14.83983
+Factorial_reduce :  43.9741
+Factorial_func   :  162.6003
+Factorial_mem    :  9.214431
+
+
+Summary:
+Absolute winner is Factorial_mem. Because it uses previously calculated values.
+Absolute loser is Factorial_func. Because it uses a lot of functions calls.

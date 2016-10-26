@@ -120,25 +120,3 @@ microbenchmark(Factorial_loop(n_big), times = count)
 microbenchmark(Factorial_reduce(n_big), times = count)
 microbenchmark(Factorial_func(n_big), times = count)
 microbenchmark(Factorial_mem(n_big), times = count)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
